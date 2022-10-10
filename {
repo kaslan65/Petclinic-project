@@ -1,0 +1,102 @@
+Script started on 2022-10-10 15:50:41+0000
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-admin-server/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_ADMIN_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:admin-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-api-gateway/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_API_GATEWAY="${ECR_REGISTRY}/${APP_REPO_NAME}:api-gateway-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-config-server/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_CONFIG_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:config-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-customers-service/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_CUSTOMERS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:customers-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-discovery-server/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_DISCOVERY_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:discovery-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-hystrix-dashboard/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_HYSTRIX_DASHBOARD="${ECR_REGISTRY}/${APP_REPO_NAME}:hystrix-dashboard-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-vets-service/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_VETS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:vets-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-visits-service/target/maven-archiver/pom.properties && echo $version', returnStdout:true).trim()
+                    env.IMAGE_TAG_VISITS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:visits-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+                    env.IMAGE_TAG_GRAFANA_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:grafana-service"
+                    env.IMAGE_TAG_PROMETHEUS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:prometheus-service"
+                }
+            }
+        }
+        stage('Build App Docker Images') {
+            steps {
+                echo 'Building App Dev Images'
+                sh ". ./jenkins/build-qa-docker-images-for-ecr.sh"
+                sh 'docker image ls'
+            }
+        }
+        stage('Push Images to ECR Repo') {
+            steps {
+                echo "Pushing $]0;ec2-user@jenkins-server:~/Petclinic-project{APP_NAME} App Images to ECR Repo"
+               [?1034h[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-admin-server/target/maven-archiver/pom.properties && echo $versio n', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-projecton Kubernetes Cluster'){
+            steps {
+     [36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_ADMIN_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:admin-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_ADMIN_SERVER=/:admin-server-qa-v-b: No such file or directory
+er'
+                sh '. ./jenkins/deploy_app_on_]0;ec2-user@jenkins-server:~/Petclinic-projectqa_environment.sh'
+            }
+        }
+    }
+ [36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-api-gateway/target/maven-archiver/pom.properties && echo $version ', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_API_GATEWAY="${ECR_REGISTRY}/${APP_REPO_NAME}:api-gateway-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_API_GATEWAY=/:api-gateway-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-config-server/target/maven-archiver/pom.properties && echo $versi on', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_CONFIG_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:config-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_CONFIG_SERVER=/:config-server-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-customers-service/target/maven-archiver/pom.properties && echo $v ersion', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_CUSTOMERS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:customers-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}" [A
+bash: env.IMAGE_TAG_CUSTOMERS_SERVICE=/:customers-service-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-discovery-server/target/maven-archiver/pom.properties && echo $ve rsion', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_DISCOVERY_SERVER="${ECR_REGISTRY}/${APP_REPO_NAME}:discovery-server-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_DISCOVERY_SERVER=/:discovery-server-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-hystrix-dashboard/target/maven-archiver/pom.properties && echo $v ersion', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_HYSTRIX_DASHBOARD="${ECR_REGISTRY}/${APP_REPO_NAME}:hystrix-dashboard-qa-v${MVN_VERSION}-b${BUILD_NUMBER}" [A
+bash: env.IMAGE_TAG_HYSTRIX_DASHBOARD=/:hystrix-dashboard-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-vets-service/target/maven-archiver/pom.properties && echo $versio n', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_VETS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:vets-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_VETS_SERVICE=/:vets-service-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     MVN_VERSION=sh(script:'. ${WORKSPACE}/spring-petclinic-visits-service/target/maven-archiver/pom.properties && echo $vers ion', returnStdout:true).trim()
+bash: syntax error near unexpected token `('
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_VISITS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:visits-service-qa-v${MVN_VERSION}-b${BUILD_NUMBER}"
+bash: env.IMAGE_TAG_VISITS_SERVICE=/:visits-service-qa-v-b: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_GRAFANA_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:grafana-service"
+bash: env.IMAGE_TAG_GRAFANA_SERVICE=/:grafana-service: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                     env.IMAGE_TAG_PROMETHEUS_SERVICE="${ECR_REGISTRY}/${APP_REPO_NAME}:prometheus-service"
+bash: env.IMAGE_TAG_PROMETHEUS_SERVICE=/:prometheus-service: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         stage('Build App Docker Images') {
+bash: syntax error near unexpected token `'Build App Docker Images''
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             steps {
+bash: steps: command not found
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 echo 'Building App Dev Images'
+Building App Dev Images
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 sh ". ./jenkins/build-qa-docker-images-for-ecr.sh"
+sh: . ./jenkins/build-qa-docker-images-for-ecr.sh: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 sh 'docker image ls'
+sh: docker image ls: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         stage('Push Images to ECR Repo') {
+bash: syntax error near unexpected token `'Push Images to ECR Repo''
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             steps {
+bash: steps: command not found
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 echo "Pushing ${APP_NAME} App Images to ECR Repo"
+Pushing  App Images to ECR Repo
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $            
