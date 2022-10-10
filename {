@@ -99,4 +99,48 @@ bash: syntax error near unexpected token `'Push Images to ECR Repo''
 bash: steps: command not found
 ]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 echo "Pushing ${APP_NAME} App Images to ECR Repo"
 Pushing  App Images to ECR Repo
-]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $            
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 sh ". ./jenkins/push-qa-docker-images-to-ecr.sh"
+sh: . ./jenkins/push-qa-docker-images-to-ecr.sh: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         stage('Deploy App on Kubernetes Cluster'){
+bash: syntax error near unexpected token `'Deploy App on Kubernetes Cluster''
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             steps {
+bash: steps: command not found
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 echo 'Deploying App on Kubernetes Cluster'
+Deploying App on Kubernetes Cluster
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $                 sh '. ./jenkins/deploy_app_on_qa_environment.sh'
+sh: . ./jenkins/deploy_app_on_qa_environment.sh: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $     }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $     post {
+bash: post: command not found
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         always {
+bash: always: command not found
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             echo 'Deleting all local images'
+Deleting all local images
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $             sh 'docker image prune -af'
+sh: docker image prune -af: No such file or directory
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $         }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $     }
+bash: syntax error near unexpected token `}'
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $ }[Kgit add .
+ic-weekly-qa for release branch'
+git push --set-upstream origin feature/msp-22
+git checkout dev
+git ]0;ec2-user@jenkins-server:~/Petclinic-projectmerge feature/msp-22
+git push origin dev[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $ git commit -m 'added jenkinsfile petclinic-weekly-qa for release branch'
+[feature/msp-22 8f0ec91] added jenkinsfile petclinic-weekly-qa for release branch
+ 2 files changed, 171 insertions(+)
+ create mode 100644 jenkins/jenkinsfile-petclinic-weekly-qa
+ create mode 100644 {
+]0;ec2-user@jenkins-server:~/Petclinic-project[36mec2-user@jenkins-server Petclinic-project[32m (feature/msp-22)[00m $ git push --set-upstream origin feature/msp-22
+Enumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects
